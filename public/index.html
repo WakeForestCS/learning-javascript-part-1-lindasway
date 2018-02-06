@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="shortcut icon" href="icon.png" />
+	<link rel="stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+	<title>Simple Calc</title>
+	<style>
+		body {
+			background-image: url("calc.jpg");
+		}
+		h1 {
+			padding: 0cm 1cm;
+		}
+		input {
+		    height: 2.5em;
+		    vertical-align: middle;
+		    margin-left: 41px;
+		}
+		p {
+			padding-top: 0.25cm;
+			padding-left: 1.25cm;
+			font-style: impact;
+		}
+		button {
+			margin-left: 1.25cm;
+		}
+	</style>
+</head>
+<body>
+	<h1 style = "font-family:impact;">My Simple Calculator :)</h1>
+	<form>
+		<br>
+		<button onclick="myFunction()">Click me!</button>
+		<br>
+	</form>
+	<script type="text/javascript">
+		let multiply = function(a, b) {
+			return a * b;
+		};
+		let divide = function(a, b) {
+			return a / b;
+		};
+		let subtract = function(a, b) {
+			return a - b;
+		};
+		let add = function(a, b) {
+			var result = a + b;
+			return a + b;
+		};
+		let calc = function(num1, num2, callback) {
+			if (typeof callback === "function") {
+				console.log(callback(num1, num2));
+				return callback(num1, num2);
+			}
+		};
+		function myFunction() {
+			var num1 = prompt("Enter first number:", "");
+			if (num1 == "")
+			{
+				alert("You must enter a number ");
+				return;
+			}
+			var num2 = prompt("Enter second number:", "");
+			if (num2 == "")
+			{
+				alert("You must enter a number ");
+			}
+			var action = prompt("Enter a action:", "");
+			num1 = Number(num1);
+			num2 = Number(num2);
+			//alert(calc(num1, num2, action()));
+			if (action === "multiply") {
+				alert(calc(num1, num2, multiply));
+			}
+			else if (action === "add") {
+				alert(calc(num1, num2, add));
+			}
+			else if (action === "subtract") {
+				alert(calc(num1, num2, subtract));
+			}
+			else if (action === "divide") {
+				alert(calc(num1, num2, divide));
+			}
+			else {
+				alert("undefined, please try again");
+			}
+		}		
+		//console.log(calc(2, 3, divide));
+
+	</script>
+</body>
+</html>
+
